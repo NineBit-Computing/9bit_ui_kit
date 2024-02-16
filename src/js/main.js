@@ -1,23 +1,35 @@
 // Import our custom CSS
-import '../scss/styles.scss'
+import '../scss/styles.scss';
 
 // Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
-import * as CardComponent from './components/card/card'
-import { CardConfig } from './components/card/config';
+// eslint-disable-next-line no-unused-vars
+import * as bootstrap from 'bootstrap';
+// eslint-disable-next-line no-unused-vars
+import * as CardComponent from './components/card/card';
+import {CardConfig} from './components/card/config';
 
+/**
+  * Entry point for this application
+  */
 class AppComponent extends HTMLElement {
-    constructor() {
-        super();
-    }
+  /**
+  * Constructor method
+  */
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-        this.innerHTML = `
+  /**
+  * connectedCallback
+  */
+  connectedCallback() {
+    this.innerHTML = `
         <h1>Welcome to UI Kit</h1>
-        <card-component data-options='${JSON.stringify(CardConfig)}'></card-component>
-
-        `
-    }
+        <card-component 
+          data-options='${JSON.stringify(CardConfig)}'>
+        </card-component>
+        `;
+  }
 }
 
 customElements.define('app-component', AppComponent);
