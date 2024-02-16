@@ -16,9 +16,7 @@ module.exports = {
     port: 8080,
     hot: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: './src/index.html'}),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
   module: {
     rules: [
       {
@@ -38,9 +36,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  autoprefixer,
-                ],
+                plugins: [autoprefixer],
               },
             },
           },

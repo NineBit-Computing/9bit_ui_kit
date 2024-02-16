@@ -6,22 +6,22 @@ import '../scss/styles.scss';
 import * as bootstrap from 'bootstrap';
 // eslint-disable-next-line no-unused-vars
 import * as CardComponent from './components/card/card';
-import {CardConfig} from './components/card/config';
+import { CardConfig } from './components/card/config';
 
 /**
-  * Entry point for this application
-  */
+ * Entry point for this application
+ */
 class AppComponent extends HTMLElement {
   /**
-  * Constructor method
-  */
+   * Constructor method
+   */
   constructor() {
     super();
   }
 
   /**
-  * connectedCallback
-  */
+   * connectedCallback
+   */
   connectedCallback() {
     this.innerHTML = `
         <h1>Welcome to UI Kit</h1>
