@@ -1,2 +1,3 @@
-# bootstrap-wp
-This project is built using bootstrap. 
+#  9bit_ui_kit
+
+This project is built using WebPack. 
