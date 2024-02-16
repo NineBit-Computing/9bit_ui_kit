@@ -1,6 +1,6 @@
 /**
-  * Custom element definition for CardComponent
-  */
+ * Custom element definition for CardComponent
+ */
 class CardComponent extends HTMLElement {
   /**
    * constructor
@@ -14,7 +14,7 @@ class CardComponent extends HTMLElement {
    * connectedCallback
    */
   connectedCallback() {
-    const {title, description, imgSrc, altText} = this.options;
+    const { title, description, imgSrc, altText } = this.options;
     this.innerHTML = `
         <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="${imgSrc}" alt="${altText}">
