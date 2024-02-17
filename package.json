@@ -36,9 +36,6 @@
     "webpack-dev-server": "^5.0.0"
   },
   "lint-staged": {
-    "**/*": [
-      "prettier --write --ignore-unknown"
-    ],
     "*.js": [
       "eslint"
     ]
