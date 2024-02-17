@@ -6,6 +6,8 @@ import '../scss/styles.scss';
 import * as bootstrap from 'bootstrap';
 // eslint-disable-next-line no-unused-vars
 import * as CardComponent from './components/card/card';
+// eslint-disable-next-line no-unused-vars
+import * as ImageBrowserComponent from './components/imageBrowser/imageBrowser';
 import { CardConfig } from './components/card/config';
 import { ImageBrowserConfig } from './components/imageBrowser/config';
 
