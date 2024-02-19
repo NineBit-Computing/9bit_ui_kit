@@ -2,9 +2,9 @@
  * Custom element definition for CardComponent
  */
 class ImageBrowserComponent extends HTMLElement {
-/**
- * constructor
- */
+  /**
+   * constructor
+   */
   constructor() {
     super();
     this.options = JSON.parse(this.dataset.options);

@@ -7,8 +7,7 @@
     "prepare": "husky install",
     "test": "echo test",
     "lint": "eslint --ext .js .",
-    "lint:fix": "npm run lint --fix",
-    "prettier": "npx prettier . --write"
+    "lint:fix": "npm run lint --fix"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
