@@ -15,8 +15,8 @@ class ToolbarComponent extends HTMLElement {
    * connectedCallback
    */
   connectedCallback() {
-    const { title, showSearchBar, customEventName,
-      searchPlaceholder, searchBtnText } = this.options;
+    const { title, showSearchBar, customEventName, searchPlaceholder,
+      searchBtnText } = this.options;
     let searchBarHTML = '';
     if (showSearchBar) {
       searchBarHTML = `
@@ -93,11 +93,11 @@ class ToolbarComponent extends HTMLElement {
   }
 
   /**
- * Dispatches a search event.
- * @param {string} inputValue - The value to be included.
- * @param {string} customEventName - Name of custom Event.
- * @return {void}
- */
+   * Dispatches a search event.
+   * @param {string} inputValue - The value to be included.
+   * @param {string} customEventName - Name of custom Event.
+   * @return {void}
+   */
   handleInputSearch(inputValue, customEventName) {
     const searchEvent = new CustomEvent(customEventName,
         { detail: inputValue });

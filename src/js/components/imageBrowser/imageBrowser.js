@@ -2,9 +2,9 @@
  * Custom element definition for CardComponent
  */
 class ImageBrowserComponent extends HTMLElement {
-/**
- * constructor
- */
+  /**
+   * constructor
+   */
   constructor() {
     super();
     this.options = JSON.parse(this.dataset.options);
@@ -53,8 +53,7 @@ class ImageBrowserComponent extends HTMLElement {
 
       // Append the 'img' element to the container selected based on the
       // current index
-      relatedMediaContainers[index % relatedMediaContainers.length]
-          .appendChild(img);
+      relatedMediaContainers[index % relatedMediaContainers.length].appendChild(img);
     });
   }
 }
