@@ -14,7 +14,7 @@ class ImageBrowserComponent extends HTMLElement {
    * connectedCallback
    */
   connectedCallback() {
-    const { imgSrc, imgSrc1 } = this.options;
+    const { imgSrc } = this.options;
 
     // Include Bootstrap CSS within the component
     this.innerHTML = `
@@ -26,7 +26,7 @@ class ImageBrowserComponent extends HTMLElement {
             <div class="related-media"></div>
           </div>
           <div class="col-md-9">
-            <img class="main-image img-fluid mb-3" src="${imgSrc1}">
+            <img class="main-image img-fluid mb-3" src="${imgSrc[0]}">
           </div>
         </div>
       </div>

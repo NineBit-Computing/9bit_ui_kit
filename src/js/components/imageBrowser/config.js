@@ -1,5 +1,4 @@
 export const ImageBrowserConfig = {
-  imgSrc1: 'https://m.media-amazon.com/images/I/61IGuaA1T7L._SL1500_.jpg',
   imgSrc: [
     'https://m.media-amazon.com/images/I/61IGuaA1T7L._SL1500_.jpg',
     'https://m.media-amazon.com/images/I/71WhxTeQVlL._SL1500_.jpg',
