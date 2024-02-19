@@ -9,7 +9,7 @@ import * as CardComponent from './components/card/card';
 // eslint-disable-next-line no-unused-vars
 import * as ImageBrowserComponent from './components/imageBrowser/imageBrowser';
 // eslint-disable-next-line no-unused-vars
-import * as ToolbarComponent from './components/toolbar/toolbar'
+import * as ToolbarComponent from './components/toolbar/toolbar';
 import { CardConfig } from './components/card/config';
 import { ImageBrowserConfig } from './components/imageBrowser/config';
 import { ToolbarConfig } from './components/toolbar/config';

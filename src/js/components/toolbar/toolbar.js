@@ -100,7 +100,7 @@ class ToolbarComponent extends HTMLElement {
  */
   handleInputSearch(inputValue, customEventName) {
     const searchEvent = new CustomEvent(customEventName,
-      { detail: inputValue });
+        { detail: inputValue });
     this.dispatchEvent(searchEvent);
     console.log('Custom Event raised with payload:', searchEvent.detail);
   }
