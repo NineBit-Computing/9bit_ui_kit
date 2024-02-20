@@ -2,29 +2,29 @@
  * Custom element definition for ToolbarComponent
  */
 class ToolbarComponent extends HTMLElement {
-  /**
-   * constructor
-   */
-  constructor() {
-    super();
-    this.options = JSON.parse(this.dataset.options);
-    console.log(`Data set: ${this.options.title}`);
-    // this.title = options.title;
-  }
-  /**
-   * connectedCallback
-   */
-  connectedCallback() {
-    const {
-      title,
-      showSearchBar,
-      customEventName,
-      searchPlaceholder,
-      searchBtnText,
-    } = this.options;
-    let searchBarHTML = '';
-    if (showSearchBar) {
-      searchBarHTML = `
+	/**
+	 * constructor
+	 */
+	constructor() {
+		super();
+		this.options = JSON.parse(this.dataset.options);
+		console.log(`Data set: ${this.options.title}`);
+		// this.title = options.title;
+	}
+	/**
+	 * connectedCallback
+	 */
+	connectedCallback() {
+		const {
+			title,
+			showSearchBar,
+			customEventName,
+			searchPlaceholder,
+			searchBtnText,
+		} = this.options;
+		let searchBarHTML = '';
+		if (showSearchBar) {
+			searchBarHTML = `
                 <div class="d-flex" role="search">
                     <input class="form-control me-2" type="search" 
                     placeholder="${searchPlaceholder}" aria-label="Search">
@@ -32,9 +32,9 @@ class ToolbarComponent extends HTMLElement {
                     btn-outline-success">${searchBtnText}</button>
                 </div>
             `;
-    }
+		}
 
-    this.innerHTML = `
+		this.innerHTML = `
        <div>
        <nav class="navbar navbar-expand-lg bg-body-tertiary">
        <div class="container-fluid">
@@ -78,38 +78,38 @@ class ToolbarComponent extends HTMLElement {
      </div>
         `;
 
-    if (showSearchBar === true) {
-      const searchInput = this.querySelector('input');
-      const submitBtn = this.querySelector('.btn-outline-success');
+		if (showSearchBar === true) {
+			const searchInput = this.querySelector('input');
+			const submitBtn = this.querySelector('.btn-outline-success');
 
-      submitBtn.addEventListener('click', () => {
-        const inputValue = searchInput.value;
-        this.handleInputSearch(inputValue, customEventName);
-      });
+			submitBtn.addEventListener('click', () => {
+				const inputValue = searchInput.value;
+				this.handleInputSearch(inputValue, customEventName);
+			});
 
-      searchInput.addEventListener('keydown', (event) => {
-        if (event.keyCode === 13) {
-          event.preventDefault();
-          const inputValue = searchInput.value;
-          this.handleInputSearch(inputValue, customEventName);
-        }
-      });
-    }
-  }
+			searchInput.addEventListener('keydown', (event) => {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					const inputValue = searchInput.value;
+					this.handleInputSearch(inputValue, customEventName);
+				}
+			});
+		}
+	}
 
-  /**
-   * Dispatches a search event.
-   * @param {string} inputValue - The value to be included.
-   * @param {string} customEventName - Name of custom Event.
-   * @return {void}
-   */
-  handleInputSearch(inputValue, customEventName) {
-    const searchEvent = new CustomEvent(customEventName, {
-      detail: inputValue,
-    });
-    this.dispatchEvent(searchEvent);
-    console.log('Custom Event raised with payload:', searchEvent.detail);
-  }
+	/**
+	 * Dispatches a search event.
+	 * @param {string} inputValue - The value to be included.
+	 * @param {string} customEventName - Name of custom Event.
+	 * @return {void}
+	 */
+	handleInputSearch(inputValue, customEventName) {
+		const searchEvent = new CustomEvent(customEventName, {
+			detail: inputValue,
+		});
+		this.dispatchEvent(searchEvent);
+		console.log('Custom Event raised with payload:', searchEvent.detail);
+	}
 }
 
 customElements.define('toolbar-component', ToolbarComponent);
