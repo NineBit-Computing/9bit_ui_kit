@@ -53,8 +53,9 @@ class ImageBrowserComponent extends HTMLElement {
 
       // Append the 'img' element to the container selected based on the
       // current index
-      relatedMediaContainers[index % relatedMediaContainers.length]
-          .appendChild(img);
+      relatedMediaContainers[index % relatedMediaContainers.length].appendChild(
+        img,
+      );
     });
   }
 }

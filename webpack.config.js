@@ -9,9 +9,11 @@ module.exports = {
   entry: './src/js/main.js',
   output: {
     filename: 'main.js',
+    // eslint-disable-next-line no-undef
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
+    // eslint-disable-next-line no-undef
     static: path.resolve(__dirname, 'dist'),
     port: 8080,
     hot: true,

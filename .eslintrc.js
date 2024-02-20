@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    commonjs: true,
   },
   extends: 'eslint:recommended',
   overrides: [
@@ -27,7 +28,19 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     // quotes: ['error', 'double'],
     semi: ['error', 'always'],
-
+    'max-len': [
+      1,
+      80,
+      2,
+      {
+        ignoreUrls: true,
+        ignoreComments: true,
+        ignoreTrailingComments: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
     // override configuration set by extending "eslint:recommended"
     'no-empty': 'warn',
     'no-cond-assign': ['error', 'always'],
