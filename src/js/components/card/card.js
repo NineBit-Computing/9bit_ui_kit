@@ -2,20 +2,20 @@
  * Custom element definition for CardComponent
  */
 class CardComponent extends HTMLElement {
-  /**
-   * constructor
-   */
-  constructor() {
-    super();
-    this.options = JSON.parse(this.dataset.options);
-  }
+	/**
+	 * constructor
+	 */
+	constructor() {
+		super();
+		this.options = JSON.parse(this.dataset.options);
+	}
 
-  /**
-   * connectedCallback
-   */
-  connectedCallback() {
-    const { title, description, imgSrc, altText } = this.options;
-    this.innerHTML = `
+	/**
+	 * connectedCallback
+	 */
+	connectedCallback() {
+		const { title, description, imgSrc, altText } = this.options;
+		this.innerHTML = `
         <div class="card" style="width: 20rem;">
             <img class="card-img-top" src="${imgSrc}" alt="${altText}">
             <div class="card-body">
@@ -24,7 +24,7 @@ class CardComponent extends HTMLElement {
             </div>
         </div>
         `;
-  }
+	}
 }
 
 customElements.define('card-component', CardComponent);

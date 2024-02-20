@@ -18,18 +18,18 @@ import { ToolbarConfig } from './components/toolbar/config';
  * Entry point for this application
  */
 class AppComponent extends HTMLElement {
-  /**
-   * Constructor method
-   */
-  constructor() {
-    super();
-  }
+	/**
+	 * Constructor method
+	 */
+	constructor() {
+		super();
+	}
 
-  /**
-   * connectedCallback
-   */
-  connectedCallback() {
-    this.innerHTML = `
+	/**
+	 * connectedCallback
+	 */
+	connectedCallback() {
+		this.innerHTML = `
         <toolbar-component
         data-options='${JSON.stringify(ToolbarConfig)}'>
         </toolbar-component>
@@ -42,7 +42,7 @@ class AppComponent extends HTMLElement {
         data-options='${JSON.stringify(ImageBrowserConfig)}'>
         </imagebrowser-component>
         `;
-  }
+	}
 }
 
 customElements.define('app-component', AppComponent);
