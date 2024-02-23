@@ -25,7 +25,9 @@ class ToolbarComponent extends HTMLElement {
       titlePosition,
       searchBarPosition,
       userIconPosition,
+      backgroundColor,
       titleFontSize,
+      btnBackground,
       titleFontFamily,
       titleColor } = this.options;
     let searchBarHTML = '';
@@ -43,8 +45,9 @@ class ToolbarComponent extends HTMLElement {
                     <input class="form-control me-2" type="search" 
                     placeholder="${searchPlaceholder}" aria-label="Search" 
                     style="max-width: 250px;">
-                    <button class="btn 
-                    btn-outline-success">${searchBtnText}</button>
+                    <button class="btn searchBtn
+                    btn-outline-${btnBackground?
+                      btnBackground:'success'}">${searchBtnText}</button>
                 </div>
             `;
     }
@@ -60,7 +63,8 @@ class ToolbarComponent extends HTMLElement {
 
     this.innerHTML = `
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg 
+      bg-${backgroundColor?backgroundColor:'light'}">
         <div class="container-fluid row justify-content-between">               
           <div class="col-md-4 leftDiv">
           </div>
@@ -82,7 +86,7 @@ class ToolbarComponent extends HTMLElement {
     if (showSearchBar === true) {
       this.getElementInDiv(searchBarPosition, searchBarHTML);
       const searchInput = this.querySelector('input');
-      const submitBtn = this.querySelector('.btn-outline-success');
+      const submitBtn = this.querySelector('.searchBtn');
 
       submitBtn.addEventListener('click', () => {
         const inputValue = searchInput.value;

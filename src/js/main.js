@@ -31,7 +31,8 @@ class AppComponent extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <toolbar-component
-        data-options='${JSON.stringify(ToolbarConfig)}'>
+        data-options='${JSON.stringify(ToolbarConfig)}' 
+        mycustomevent="handleSearch">
         </toolbar-component>
         <h1>Welcome to UI Kit</h1>
         <card-component 
@@ -43,6 +44,14 @@ class AppComponent extends HTMLElement {
         </imagebrowser-component>
         `;
   }
+  /**
+   *
+   * @param {string} data
+   */
+  handleSearch=(data)=> {
+    console.log('------------', data);
+  };
 }
 
 customElements.define('app-component', AppComponent);
+
