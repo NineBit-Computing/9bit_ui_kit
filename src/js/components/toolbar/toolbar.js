@@ -11,69 +11,76 @@ class ToolbarComponent extends HTMLElement {
     console.log(`Data set: ${this.options.title}`);
     // this.title = options.title;
   }
+
   /**
    * connectedCallback
    */
   connectedCallback() {
-    const { title, showSearchBar, customEventName, searchPlaceholder,
-      searchBtnText } = this.options;
+    const { title,
+      showSearchBar,
+      customEventName,
+      searchPlaceholder,
+      searchBtnText,
+      showUserIcon,
+      titlePosition,
+      searchBarPosition,
+      userIconPosition,
+      titleFontSize,
+      titleFontFamily,
+      titleColor } = this.options;
     let searchBarHTML = '';
+    let userIcon = '';
+    const navTitle = `<a class="navbar-brand" href="#" 
+    style=
+    "font-size: ${titleFontSize? titleFontSize:'25px'}; 
+    font-family: ${titleFontFamily? titleFontFamily:'Arial, sans-serif'}; 
+    color: ${titleColor? titleColor:'#000'};"
+    >${title}</a>`;
+
     if (showSearchBar) {
       searchBarHTML = `
                 <div class="d-flex" role="search">
                     <input class="form-control me-2" type="search" 
-                    placeholder="${searchPlaceholder}" aria-label="Search">
+                    placeholder="${searchPlaceholder}" aria-label="Search" 
+                    style="max-width: 250px;">
                     <button class="btn 
                     btn-outline-success">${searchBtnText}</button>
                 </div>
             `;
     }
 
+    if (showUserIcon) {
+      userIcon = `
+      <div style="height: 45px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" height='45px'/>
+      </div>
+      `;
+    }
+
+
     this.innerHTML = `
-       <div>
-       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-       <div class="container-fluid">
-         <a class="navbar-brand" href="#">${title}</a>
-         <button class="navbar-toggler" type="button" 
-         data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-         aria-controls="navbarSupportedContent" aria-expanded="false" 
-         aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             <li class="nav-item">
-               <a class="nav-link active" aria-current="page" href="#">Home</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" href="#">Link</a>
-             </li>
-             <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" 
-               href="#" role="button" data-bs-toggle="dropdown" 
-               aria-expanded="false">
-                 Dropdown
-               </a>
-               <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="#">Action</a></li>
-                 <li><a class="dropdown-item" href="#">Another action</a></li>
-                 <li><hr class="dropdown-divider"></li>
-                 <li><a class="dropdown-item" 
-                 href="#">Something else here</a></li>
-               </ul>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-             </li>
-           </ul>
-           ${searchBarHTML}
-         </div>
-       </div>
-     </nav>
-     </div>
-        `;
+    <div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid row justify-content-between">               
+          <div class="col-md-4 leftDiv">
+          </div>
+          <div class="col-md-4 d-flex justify-content-center centerDiv">
+          </div>
+          <div class="col-md-4 d-flex justify-content-end rightDiv">        
+          </div> 
+        </div>    
+      </nav>
+    </div>
+    `;
+
+    this.getElementInDiv(titlePosition, navTitle);
+
+    if (showUserIcon) {
+      this.getElementInDiv(userIconPosition, userIcon);
+    }
 
     if (showSearchBar === true) {
+      this.getElementInDiv(searchBarPosition, searchBarHTML);
       const searchInput = this.querySelector('input');
       const submitBtn = this.querySelector('.btn-outline-success');
 
@@ -92,6 +99,7 @@ class ToolbarComponent extends HTMLElement {
     }
   }
 
+
   /**
    * Dispatches a search event.
    * @param {string} inputValue - The value to be included.
@@ -103,6 +111,16 @@ class ToolbarComponent extends HTMLElement {
         { detail: inputValue });
     this.dispatchEvent(searchEvent);
     console.log('Custom Event raised with payload:', searchEvent.detail);
+  }
+
+  /**
+Sets the content of an element within a specified position div.
+@param {string} position - The position of the element.
+@param {string} content - The content to be inserted into the div.
+*/
+  getElementInDiv(position, content) {
+    const divforItem = this.querySelector(`.${position}Div`);
+    divforItem.innerHTML = content;
   }
 }
 

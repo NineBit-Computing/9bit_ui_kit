@@ -1,7 +1,15 @@
 export const ToolbarConfig = {
   title: 'MyNavBar',
+  titlePosition: 'center',
   showSearchBar: true,
   searchPlaceholder: 'Enter Something...',
   searchBtnText: 'Go!',
+  searchBarPosition: 'left',
   customEventName: 'MyCustomEvent',
+  showUserIcon: true,
+  userIconPosition: 'right',
+  titleFontSize: '30px',
+  titleFontFamily: 'Verdana,sans-serif',
+  titleColor: 'red',
+  navBackground: '',
 };
